@@ -1,0 +1,38 @@
+.about {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 80px 104px;
+  background-color: #fff;
+  object-fit: contain;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+.about__image {
+  width: 464px;
+  height: 464px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  margin: 0;
+}
+
+.about__content {
+  max-width: 624px;
+  margin-left: 56px;
+  margin-top: 45px;
+}
+
+.about__title {
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 46px;
+  /* margin: 131px 216px 0 0; */
+}
+
+.about__text {
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 16px;
+}
