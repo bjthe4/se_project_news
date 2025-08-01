@@ -1,0 +1,32 @@
+.login__modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.login__button-modal {
+  background-color: #2f71e5;
+  color: #fff;
+  font-weight: 500;
+  border: none;
+  padding: 12px 0;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.login__button-modal:hover {
+  background-color: #235ac8;
+}
+
+.signup__button-modal {
+  background: none;
+  border: none;
+  color: #2f71e5;
+  margin-top: 12px;
+  font-size: 14px;
+  cursor: pointer;
+}

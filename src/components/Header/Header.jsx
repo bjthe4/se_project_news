@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 
-function Header() {
+function Header({ handleAddRegistration }) {
   return (
     <header className="header">
       <div className="header__logo">NewsExplorer</div>
@@ -11,7 +11,13 @@ function Header() {
           Home
         </Link>
         <div className="nav-underline"></div>
-        <button className="header__button">Sign in</button>
+        <button
+          type="button"
+          className="header__button"
+          onClick={handleAddRegistration}
+        >
+          Sign in
+        </button>
       </nav>
     </header>
   );
