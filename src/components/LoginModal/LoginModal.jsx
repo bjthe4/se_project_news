@@ -33,11 +33,11 @@ function LoginModal({
       onClose={onClose}
       onSubmit={handleSubmit}
     >
-      <label className="modal_label">
+      <label className="modal__label">
         Email
         <input
           type="email"
-          className="modal_input"
+          className="modal__input"
           id="email"
           placeholder="Email"
           name="email"
@@ -70,7 +70,7 @@ function LoginModal({
           className="signup__button-modal"
           onClick={handleAddRegistration}
         >
-          Or Sign up
+          <span className="login__or-text">or </span> Sign up
         </button>
       </div>
     </ModalWithForm>

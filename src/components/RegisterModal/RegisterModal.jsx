@@ -3,6 +3,10 @@ import "./RegisterModal.css";
 import ModalWithForm from "../ModelWithForm/ModalWithForm";
 
 function RegisterModal({ onClose, isOpen, onSubmit, handleShowLogin }) {
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [nameError, setNameError] = useState("");
+
   const [email, setEmail] = useState("");
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -20,10 +24,42 @@ function RegisterModal({ onClose, isOpen, onSubmit, handleShowLogin }) {
     return null;
   }
 
+  const validateForm = () => {
+    let isValid = true;
+
+    if (!email) {
+      setEmailError("Email is required.");
+      isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      setEmailError("Enter a valid email.");
+      isValid = false;
+    } else {
+      setEmailError("");
+    }
+
+    if (!password) {
+      setPasswordError("Password is required.");
+      isValid = false;
+    } else {
+      setPasswordError("");
+    }
+
+    if (!name) {
+      setNameError("Username is required.");
+      isValid = false;
+    } else {
+      setNameError("");
+    }
+
+    return isValid;
+  };
+
   const handleSubmitRegisteration = (e) => {
     console.log("asf");
     e.preventDefault();
-    onSubmit({ email, password, name });
+    if (validateForm()) {
+      onSubmit({ email, password, name });
+    }
   };
 
   return (
@@ -32,7 +68,7 @@ function RegisterModal({ onClose, isOpen, onSubmit, handleShowLogin }) {
       buttonText="Sign Up"
       onClose={onClose}
       isOpen={isOpen}
-      handlesubmitRegisteration={handleSubmitRegisteration}
+      onSubmit={handleSubmitRegisteration}
     >
       <label htmlFor="email" className="modal__label">
         Email
@@ -45,6 +81,7 @@ function RegisterModal({ onClose, isOpen, onSubmit, handleShowLogin }) {
           value={email}
           onChange={handleEmailChange}
         />
+        {emailError && <p className="register__modal-error ">{emailError}</p>}
       </label>
       <label htmlFor="password" className="modal__label">
         Password
@@ -52,11 +89,14 @@ function RegisterModal({ onClose, isOpen, onSubmit, handleShowLogin }) {
           type="password"
           className="modal__input"
           id="password"
-          placeholder="Password"
+          placeholder="Enter password"
           name="password"
           value={password}
           onChange={handlePasswordChange}
         />
+        {passwordError && (
+          <p className="register__modal-error ">{passwordError}</p>
+        )}
       </label>
       <label htmlFor="name" className="modal__label">
         Username
@@ -64,11 +104,12 @@ function RegisterModal({ onClose, isOpen, onSubmit, handleShowLogin }) {
           type="text"
           className="modal__input"
           id="name"
-          placeholder="Name"
+          placeholder="Enter your username"
           name="name"
           value={name}
           onChange={handleNameChange}
         />
+        {nameError && <p className="register__modal-error ">{nameError}</p>}
       </label>
       <label className="register__signUp">
         <button type="submit" className="register__signup">

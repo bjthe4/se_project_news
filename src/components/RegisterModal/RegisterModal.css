@@ -9,6 +9,7 @@
   border-radius: 31px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 100%;
 }
 
 .register__signup:hover {
@@ -34,4 +35,11 @@
 
 .register__or-text {
   color: #000;
+}
+
+.register__modal-error {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+  margin-bottom: 8px;
 }

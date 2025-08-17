@@ -2,14 +2,12 @@
   background-image: url("../../assets/georgia-bg.png"); /* Adjust path */
   background-size: cover;
   background-position: center;
-  height: 576px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 0 20px;
   position: relative;
-  width: 100vw;
   max-width: 100vw;
   box-sizing: border-box;
 }
@@ -32,4 +30,20 @@
   max-width: 608px;
   margin: 0 auto 88px;
   text-align: center;
+}
+
+/* .news-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+} */
+
+.news-list {
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  padding: 40px 0;
+  justify-content: center;
+  list-style-type: none;
 }
