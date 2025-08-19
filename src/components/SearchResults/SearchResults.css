@@ -1,0 +1,22 @@
+.search-title {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 46px;
+  height: 46px;
+  color: #000; /* Change if your design uses a different color */
+  margin: 0px auto; /* Optional: center horizontally */
+  text-align: left;
+}
+
+.Search__results-button {
+  border-radius: 32px;
+  width: 288px;
+  height: 64px;
+  border: none;
+  background-color: #bbb;
+  cursor: pointer;
+}
+
+.Search__results-button:hover {
+  background-color: #606162;
+}

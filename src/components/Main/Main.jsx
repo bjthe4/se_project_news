@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./Main.css";
 import SearchForm from "../SearchForm/SearchForm";
 import NewsCard from "../NewsCard/NewsCard";
+import SearchResults from "../SearchResults/SearchResults";
 
 function Main() {
   const [newsList, setNewsList] = useState([]);
@@ -9,7 +10,9 @@ function Main() {
   useEffect(() => {
     fetch("http://localhost:3002/news")
       .then((res) => res.json())
-      .then((data) => setNewsList(data))
+      .then((data) => {
+        setNewsList(data);
+      })
       .catch((err) => console.error("Error fetching news:", err));
   }, []);
 
@@ -22,14 +25,9 @@ function Main() {
           account.
         </p>
         <SearchForm />
-        <div className="news-container">
-          <ul className="news-list">
-            {newsList.map((newsItem) => (
-              <NewsCard key={newsItem._id} news={newsItem} />
-            ))}
-          </ul>
-        </div>
       </div>
+
+      <SearchResults newsList={newsList} />
     </main>
   );
 }
