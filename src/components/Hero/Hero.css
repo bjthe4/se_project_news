@@ -1,0 +1,59 @@
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)),
+    url('../../assets/heroBg.jpg'); /* Background image with dark overlay */
+  background-size: 100% 100%; /* Stretches background to fit container */
+  padding: 40px 16px; /* Inner spacing */
+  color: white; /* Text color */
+  text-align: center; /* Centers text horizontally */
+  min-height: 80vh; /* Covers 80% of viewport height */
+  display: flex; /* Flexbox for alignment */
+  align-items: center; /* Vertically centers content */
+  justify-content: center; /* Horizontally centers content */
+}
+
+.innerContent {
+  width: 50%; /* Content takes half width */
+  margin: auto;
+  text-align: left; /* Align text to the left */
+}
+
+.contentText {
+  margin-bottom: 90px; /* Adds spacing below text */
+}
+
+.hero .innerContent .contentText h1 {
+  font-size: 60px; /* Large heading */
+  font-weight: 400;
+  text-align: left;
+  margin-bottom: 0;
+}
+@media (max-width: 1024px) {
+  .hero .innerContent .contentText h1 {
+    font-size: 40px; /* Smaller heading for tablets */
+    font-weight: 400;
+    text-align: left;
+    margin-bottom: 0;
+  }
+  .innerContent {
+    width: 70%; /* Content takes more width */
+  }
+}
+@media (max-width: 350px) {
+  .searchForm input {
+    width: 50%;
+    margin: auto;
+  }
+  .searchForm button,
+  input {
+    font-size: 14px;
+  }
+  .searchForm button {
+    padding: 21px 26px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .innerContent {
+    width: 100%; /* Full width for small screens */
+  }
+}

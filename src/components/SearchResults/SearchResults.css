@@ -1,0 +1,126 @@
+/* ============================
+   Search Form Styling
+   ============================ */
+.searchForm {
+  margin: 12px auto 0 auto; /* Center horizontally with top margin */
+  display: flex; /* Layout: input + button in a row */
+  gap: 8px; /* Space between input and button */
+  border-radius: 100px; /* Fully rounded pill shape */
+  background-color: white;
+  /* Vendor prefixes for compatibility */
+  /* -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px; */
+}
+
+/* Input inside the search form */
+.searchForm input {
+  flex: 1; /* Take up remaining space */
+  border-radius: 100px; /* Rounded pill shape */
+  border: none; /* No border */
+  padding-left: 15px; /* Inner left padding for text */
+  font-size: 16px;
+  outline: none; /* Remove default focus outline */
+  /* Vendor prefixes */
+  /* -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px; */
+  background-color: #fff;
+}
+
+/* Input placeholder styling */
+.searchForm input::placeholder {
+  color: #b6bcbf;
+}
+
+/* Submit button styling */
+.searchForm button {
+  padding: 21px 42px; /* Larger click area */
+  border-radius: 100px; /* Rounded pill */
+  border: none;
+  cursor: pointer;
+  background-color: #2f71e5; /* Primary blue background */
+  color: white; /* White text */
+  outline: none;
+  /* Vendor prefixes */
+  /* -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px; */
+}
+
+/* ============================
+   Search Results Layout
+   ============================ */
+.searchResults {
+  max-width: 2500px; /* Prevent overly wide layout */
+  margin: 24px auto; /* Vertical spacing + center horizontally */
+  padding: 40px 100px; /* Inner spacing */
+  position: relative; /* Allows absolute children if needed */
+}
+
+/* News grid */
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
+}
+
+/* ============================
+   Show More Button
+   ============================ */
+.showMoreWrap {
+  display: flex;
+  justify-content: center; /* Center button horizontally */
+  margin: 20px 0; /* Vertical spacing */
+}
+
+/* Button styling */
+.showMoreBtn {
+  background: #e8e8e8; /* Light gray background */
+  border: 1px solid #e2e8f0;
+  padding: 20px 60px;
+  border-radius: 999px; /* Fully pill-shaped */
+  cursor: pointer;
+  color: #0f172a; /* Dark text */
+  font-weight: 600;
+  transition: background 160ms ease, transform 120ms ease;
+  /* Vendor prefixes */
+  -webkit-transition: background 160ms ease, transform 120ms ease;
+  -moz-transition: background 160ms ease, transform 120ms ease;
+  -ms-transition: background 160ms ease, transform 120ms ease;
+  -o-transition: background 160ms ease, transform 120ms ease;
+}
+
+/* Hover effect */
+.showMoreBtn:hover {
+  background: rgba(37, 99, 235, 0.06); /* Light blue hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+/* ============================
+   Responsive Design
+   ============================ */
+
+/* Medium screens: reduce padding */
+@media (max-width: 860px) {
+  .searchResults {
+    padding: 20px 40px;
+  }
+}
+
+/* Tablets: 2-column grid */
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Small screens: single column */
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

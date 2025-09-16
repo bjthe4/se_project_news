@@ -1,0 +1,54 @@
+:root {
+  --muted: #666;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial;
+  margin: 0;
+  color: #111;
+  background: #f7f7f8;
+  width: 100vw;
+}
+
+a {
+  color: inherit;
+}
+
+/* small helpers */
+.loading {
+  text-align: center;
+  padding: 20px;
+}
+.formError {
+  color: #c82333;
+  margin-top: 8px;
+}
+
+/* auth form inside modal */
+.authForm label {
+  display: block;
+  margin-bottom: 8px;
+}
+.authForm input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+}
+.authActions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  align-items: center;
+}
+.linkLike {
+  border: none;
+  background: transparent;
+  color: #0077ff;
+  cursor: pointer;
+}
+
+/* basic layout for cards etc handled in component css files */

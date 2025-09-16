@@ -1,0 +1,71 @@
+.favoritesRoot {
+  margin-top: 70px; /* pushes content below fixed header/nav */
+  background-color: #f5f6f8; /* light background behind content */
+}
+
+.textContent {
+  padding: 40px 100px; /* generous spacing around section header */
+  background-color: white; /* section stands out against page bg */
+}
+
+.textContent h3 {
+  font-size: 18px;
+  color: #1a1b2280; /* muted subtitle color */
+}
+
+.favoritesRoot h4 {
+  font-size: 40px;
+  font-weight: 800; /* bold, large title */
+  width: 40%; /* text restricted to 40% for better readability on wide screens */
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.newsContent {
+  min-height: 100vh; /* ensures section fills screen height */
+  padding: 40px 100px;
+}
+
+.favGrid {
+  background-color: #f5f6f8;
+  display: grid; /* grid layout for cards */
+  gap: 16px; /* spacing between cards */
+  grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+}
+
+/* Medium screens (tablet size and below) */
+@media (max-width: 960px) {
+  .favGrid {
+    grid-template-columns: repeat(2, 1fr); /* switch to 2-column layout */
+  }
+  .textContent,
+  .newsContent {
+    padding: 10px 16px; /* reduce padding for smaller screens */
+  }
+  .textContent h4 {
+    width: 100%; /* allow title to span full width */
+  }
+  .favoritesRoot {
+    margin-top: 100px; /* slightly more top space for smaller headers */
+    min-height: 100vh;
+  }
+}
+
+/* Small screens (mobile) */
+@media (max-width: 640px) {
+  .favGrid {
+    grid-template-columns: 1fr; /* single column layout */
+    justify-items: center; /* center cards horizontally */
+  }
+  .textContent,
+  .newsContent {
+    padding: 10px 16px; /* compact spacing */
+  }
+  .textContent h4 {
+    width: 100%;
+  }
+  .favoritesRoot {
+    margin-top: 80px; /* adjust spacing for mobile nav/header */
+    min-height: 100vh;
+  }
+}

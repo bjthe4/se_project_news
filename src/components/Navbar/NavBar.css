@@ -1,0 +1,274 @@
+/* ---------------- NAVBAR BASE ---------------- */
+.navBar {
+  border-bottom: 1px solid #e6e6e6;
+  background: transparent;
+  position: fixed; /* sticks to top */
+  width: 100%;
+  top: 0;
+  z-index: 50; /* sits above other elements */
+  padding: 10px 100px;
+  transition: background-color 200ms ease, color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+/* navbar background & shadow when user scrolls */
+.navBar.scrolled {
+  background: white;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* ---------------- INNER LAYOUT ---------------- */
+.navInner {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+}
+
+/* ---------------- LOGO ---------------- */
+.logo {
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+/* logo turns black on scroll */
+.navBar.scrolled .logo {
+  color: #111;
+}
+
+/* ---------------- NAV LINKS ---------------- */
+.navLinks {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+/* default nav links (white) */
+.navLinks a {
+  text-decoration: none;
+  color: white;
+  transition: color 200ms ease;
+}
+
+/* turn links black when scrolled */
+.navBar.scrolled .navLinks a {
+  color: #111;
+}
+
+/* forced link color variants (props from NavBar.jsx) */
+.linksWhite a,
+.linksBlack,
+.linksWhite .linkButton {
+  color: white;
+}
+
+.linksBlack a,
+.linksBlack,
+.linksBlack .linkButton {
+  color: black !important;
+}
+
+/* background helpers */
+.bgWhite {
+  background-color: white !important;
+}
+.bgTransparent {
+  background-color: transparent;
+}
+
+/* ---------------- LINK BUTTON ---------------- */
+.linkButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+  border: 1px solid white;
+  border-radius: 1rem;
+  padding: 16px 40px;
+  transition: color 200ms ease, border-color 200ms ease, background 200ms ease;
+}
+
+/* style for linkButton when scrolled */
+.navBar.scrolled .linkButton {
+  color: #111;
+  border-color: #111;
+  background: transparent;
+}
+
+/* ---------------- MOBILE BURGER ---------------- */
+.mobileBurger {
+  display: none; /* hidden on desktop */
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: white;
+  transition: color 200ms ease;
+}
+
+/* burger turns black when scrolled */
+.navBar.scrolled .mobileBurger {
+  color: #111;
+}
+
+/* ---------------- AUTH FORM ---------------- */
+.authForm input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+  font-size: 14px;
+  padding-left: 0px !important;
+  margin: 20px 0;
+  background-color: #fff;
+}
+
+.authForm label {
+  color: var(--primaryColor);
+  font-size: 12px;
+}
+
+.authActions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.authActions .submitButton {
+  font-size: 18px;
+  width: 90%;
+  background: var(--primaryColor);
+  padding: 20px 0px;
+  border-radius: 2rem;
+  outline: none;
+  color: white;
+}
+
+/* disabled submit state */
+.authActions .submitButton:disabled {
+  background-color: #e6e8eb;
+  color: #b6bcbf;
+}
+
+.authActions .linkLike {
+  font-size: 14px;
+  outline: none;
+}
+
+/* small inline form error message */
+.formError {
+  font-size: 12px;
+  text-align: center;
+}
+
+/* ---------------- RESPONSIVE BREAKPOINTS ---------------- */
+
+/* Tablet: adjust padding */
+@media (max-width: 1024px) {
+  .navBar {
+    padding: 20px 40px;
+  }
+}
+
+/* ---------- MOBILE (<=768px) ---------- */
+@media (max-width: 768px) {
+  /* show burger on mobile */
+  .mobileBurger {
+    display: inline-block;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  /* reduce navbar padding */
+  .navBar {
+    padding: 10px 16px;
+  }
+
+  /* collapse nav links into dropdown */
+  .navLinks {
+    position: absolute;
+    top: 60px; /* height of navbar */
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    overflow: hidden;
+
+    max-height: 0; /* hidden by default */
+    opacity: 0;
+    pointer-events: none;
+
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+  }
+
+  /* opened dropdown */
+  .navLinks.open {
+    max-height: 200px; /* can be increased if needed */
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* default open-state colors */
+  .navLinks.open a {
+    color: #111;
+  }
+  .navLinks.open .linkButton {
+    color: #111;
+    border-color: #111;
+  }
+
+  /* fallback color rules */
+  .navLinks a {
+    color: #111;
+  }
+  .linkButton {
+    color: #111;
+    border-color: #111;
+  }
+
+  /* when NavBar has .mobileOpen class (dark mode) */
+  .navBar.mobileOpen {
+    background: #000 !important;
+  }
+
+  .navBar.mobileOpen .navLinks {
+    background: #000;
+  }
+
+  .navBar.mobileOpen .logo,
+  .navBar.mobileOpen .navLinks a,
+  .navBar.mobileOpen .linkButton,
+  .navBar.mobileOpen .mobileBurger {
+    color: #fff !important;
+    border-color: #fff !important;
+  }
+
+  /* navLinks sizing for narrow screens */
+  .navLinks.open {
+    width: 100%;
+    height: 300px; /* taller menu for mobile */
+  }
+}
+
+/* Extra small screens (<680px): shorter dropdown */
+@media (max-width: 680px) {
+  .navLinks.open {
+    height: 200px;
+  }
+}
+
+/* Desktop fallback (>=769px): keep horizontal nav */
+@media (min-width: 769px) {
+  .navLinks {
+    position: static;
+    max-height: none;
+    opacity: 1;
+    pointer-events: auto;
+    flex-direction: row;
+    background: transparent;
+  }
+}
