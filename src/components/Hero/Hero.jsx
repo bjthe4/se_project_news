@@ -1,6 +1,6 @@
 // components/Hero/Hero.jsx
-import React from 'react';
-import './Hero.css';
+import React from "react";
+import "./Hero.css";
 
 /**
  * Hero Component
@@ -23,23 +23,27 @@ import './Hero.css';
 export default function Hero({ query, setQuery, handleSubmit }) {
   return (
     <section className="hero">
-      <div className="innerContent">
+      <div className="hero__inner">
         {/* Text content (headline + description) */}
-        <div className="contentText">
-          <h1>What's going on in the world?</h1>
-          <p>
-            Find the latest news on any topic and save them in your personal account.
+        <div className="hero__content-text">
+          <h1 className="hero__headline">What's going on in the world?</h1>
+          <p className="hero__description">
+            Find the latest news on any topic and save them in your personal
+            account.
           </p>
         </div>
 
         {/* Search form for entering a topic */}
-        <form className="searchForm" onSubmit={handleSubmit}>
+        <form className="hero__search-form" onSubmit={handleSubmit}>
           <input
+            className="hero__search-input"
             value={query}
             onChange={(e) => setQuery(e.target.value)} // updates query state
             placeholder="Enter topic"
           />
-          <button type="submit">Search</button>
+          <button type="submit" className="hero__search-button">
+            Search
+          </button>
         </form>
       </div>
     </section>

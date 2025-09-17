@@ -1,12 +1,11 @@
-
-.authorSection {
+.author__section {
   background: #fff;
   padding: 48px 16px;
   border-top: 1px solid #e9e9e9;
   padding: 40px 100px;
 }
 
-.authorInner {
+.author__inner {
   margin: 0;
   display: flex;
   gap: 60px;
@@ -14,8 +13,7 @@
   width: 100%;
 }
 
-.authorContent {
-  
+.author__content {
   h2 {
     font-size: 40px;
     margin-bottom: 24px;
@@ -23,19 +21,13 @@
 }
 
 /* big circular avatar on left */
-.authorAvatar {
-  width: 400px;
-  height: 400px;
+.author__avatar {
+  width: 464px;
+  height: 464px;
   border-radius: 50%;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-  flex-shrink: 0;
-  text-align: center;
+  object-fit: cover;
+  object-position: top;
+  margin: 0;
 }
 
 /* fallback text inside circle when no image provided */
@@ -45,7 +37,7 @@
   line-height: 1.4;
 }
 
-.authorBio {
+.author__bio {
   margin: 0;
   color: var(--muted, #666);
   max-width: 760px;
@@ -53,18 +45,18 @@
 }
 /* responsive: stack vertically on small screens */
 @media (max-width: 860px) {
-  .authorInner {
+  .author__inner {
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 20px;
   }
 
-  .authorAvatar {
+  .author__avatar {
     width: 200px;
     height: 200px;
   }
-  .authorSection {
+  .author__section {
     padding: 20px 40px;
   }
 

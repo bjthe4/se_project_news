@@ -18,7 +18,7 @@
 }
 
 /* ---------------- INNER LAYOUT ---------------- */
-.navInner {
+.navbar__inner {
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -27,7 +27,7 @@
 }
 
 /* ---------------- LOGO ---------------- */
-.logo {
+.navbar__logo {
   font-weight: 700;
   color: white;
   text-decoration: none;
@@ -35,26 +35,26 @@
 }
 
 /* logo turns black on scroll */
-.navBar.scrolled .logo {
+.navBar.scrolled .navbar__logo {
   color: #111;
 }
 
 /* ---------------- NAV LINKS ---------------- */
-.navLinks {
+.navbar__links {
   display: flex;
   gap: 25px;
   align-items: center;
 }
 
 /* default nav links (white) */
-.navLinks a {
+.navbar__links a {
   text-decoration: none;
   color: white;
   transition: color 200ms ease;
 }
 
 /* turn links black when scrolled */
-.navBar.scrolled .navLinks a {
+.navBar.scrolled .navbar__links a {
   color: #111;
 }
 
@@ -80,7 +80,7 @@
 }
 
 /* ---------------- LINK BUTTON ---------------- */
-.linkButton {
+.navbar__auth-button {
   background: transparent;
   border: none;
   cursor: pointer;
@@ -92,14 +92,14 @@
 }
 
 /* style for linkButton when scrolled */
-.navBar.scrolled .linkButton {
+.navBar.scrolled .navbar__auth-button {
   color: #111;
   border-color: #111;
   background: transparent;
 }
 
-/* ---------------- MOBILE BURGER ---------------- */
-.mobileBurger {
+/* ---------------- NAVBAR BURGER ---------------- */
+.navbar__burger {
   display: none; /* hidden on desktop */
   background: transparent;
   border: none;
@@ -109,7 +109,7 @@
 }
 
 /* burger turns black when scrolled */
-.navBar.scrolled .mobileBurger {
+.navBar.scrolled .navbar__burger {
   color: #111;
 }
 
@@ -175,7 +175,7 @@
 /* ---------- MOBILE (<=768px) ---------- */
 @media (max-width: 768px) {
   /* show burger on mobile */
-  .mobileBurger {
+  .navbar__burger {
     display: inline-block;
     background: none;
     border: none;
@@ -189,7 +189,7 @@
   }
 
   /* collapse nav links into dropdown */
-  .navLinks {
+  .navbar__links {
     position: absolute;
     top: 60px; /* height of navbar */
     left: 0;
@@ -206,17 +206,17 @@
   }
 
   /* opened dropdown */
-  .navLinks.open {
+  .navbar__links.open {
     max-height: 200px; /* can be increased if needed */
     opacity: 1;
     pointer-events: auto;
   }
 
   /* default open-state colors */
-  .navLinks.open a {
+  .navbar__links.open a {
     color: #111;
   }
-  .navLinks.open .linkButton {
+  .navbar__links.open .navbar__auth-button {
     color: #111;
     border-color: #111;
   }
@@ -225,7 +225,7 @@
   .navLinks a {
     color: #111;
   }
-  .linkButton {
+  .navbar__auth-button {
     color: #111;
     border-color: #111;
   }
@@ -235,20 +235,20 @@
     background: #000 !important;
   }
 
-  .navBar.mobileOpen .navLinks {
+  .navBar.mobileOpen .navbar__links {
     background: #000;
   }
 
   .navBar.mobileOpen .logo,
   .navBar.mobileOpen .navLinks a,
-  .navBar.mobileOpen .linkButton,
-  .navBar.mobileOpen .mobileBurger {
+  .navBar.mobileOpen .navbar__auth-button,
+  .navBar.mobileOpen .navbar__burger {
     color: #fff !important;
     border-color: #fff !important;
   }
 
   /* navLinks sizing for narrow screens */
-  .navLinks.open {
+  .navbar__links.open {
     width: 100%;
     height: 300px; /* taller menu for mobile */
   }
@@ -256,14 +256,14 @@
 
 /* Extra small screens (<680px): shorter dropdown */
 @media (max-width: 680px) {
-  .navLinks.open {
+  .navbar__links.open {
     height: 200px;
   }
 }
 
 /* Desktop fallback (>=769px): keep horizontal nav */
 @media (min-width: 769px) {
-  .navLinks {
+  .navbar__links {
     position: static;
     max-height: none;
     opacity: 1;

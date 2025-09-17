@@ -1,6 +1,6 @@
 // components/Loading.jsx
-import React from 'react';
-import './Loading.css';
+import React from "react";
+import "./Loading.css";
 
 /**
  * Loading component shows a centered spinner and skeleton cards
@@ -8,9 +8,9 @@ import './Loading.css';
  */
 export default function Loading() {
   return (
-    <div className='loader'>
-      <div className='circle-preloader'></div>
-      <p>Searching for results...</p>
+    <div className="loader">
+      <div className="loader__spinner"></div>
+      <p className="loader__message">Searching for results...</p>
     </div>
   );
 }

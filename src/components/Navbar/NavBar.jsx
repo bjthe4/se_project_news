@@ -1,8 +1,8 @@
 // components/NavBar.jsx
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import './NavBar.css';
-import Modal from '../Modal/Modal';
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import "./NavBar.css";
+import Modal from "../Modal/Modal";
 
 export default function NavBar({
   isAuthenticated,
@@ -26,33 +26,33 @@ export default function NavBar({
       setIsScrolled(window.scrollY > 20);
     }
     handleScroll(); // run immediately
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Form state for modal
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   // Reset form whenever switching between sign-in / sign-up
   useEffect(() => {
-    setError('');
-    setEmail('');
-    setPassword('');
-    setName('');
+    setError("");
+    setEmail("");
+    setPassword("");
+    setName("");
   }, [isSignupMode]);
 
   // Handle sign in / sign up form submit
   async function handleSubmit(e) {
     e.preventDefault();
-    setError('');
+    setError("");
 
     // Basic required field check
     if (!email || !password || (isSignupMode && !name)) {
-      setError('Please fill required fields');
+      setError("Please fill required fields");
       return;
     }
 
@@ -66,12 +66,12 @@ export default function NavBar({
 
       // Reset modal + form after success
       setIsModalOpen(false);
-      setEmail('');
-      setPassword('');
-      setName('');
+      setEmail("");
+      setPassword("");
+      setName("");
       setShowMobileMenu(false); // close mobile menu after login
     } catch (err) {
-      setError(err.message || 'Auth failed');
+      setError(err.message || "Auth failed");
     } finally {
       setLoading(false);
     }
@@ -79,11 +79,11 @@ export default function NavBar({
 
   // Dynamic nav styles depending on route
   const linkColorClass =
-    location.pathname === '/' ? 'linksWhite' : 'linksBlack';
-  const bgColorClass = location.pathname === '/' ? 'bgTransparent' : 'bgWhite';
+    location.pathname === "/" ? "linksWhite" : "linksBlack";
+  const bgColorClass = location.pathname === "/" ? "bgTransparent" : "bgWhite";
 
   // Extra class when mobile menu is expanded
-  const mobileOpenClass = showMobileMenu ? 'mobileOpen' : '';
+  const mobileOpenClass = showMobileMenu ? "mobileOpen" : "";
 
   // Helper to close mobile nav
   function handleCloseMenu() {
@@ -93,21 +93,21 @@ export default function NavBar({
   return (
     <nav
       className={`navBar ${bgColorClass} ${
-        isScrolled ? 'scrolled' : ''
+        isScrolled ? "scrolled" : ""
       } ${mobileOpenClass}`}
     >
-      <div className='navInner'>
+      <div className="navbar__inner">
         {/* Logo (left side) */}
-        <div className={`navLeft ${linkColorClass}`}>
-          <Link to='/' className='logo' onClick={handleCloseMenu}>
+        <div className={`navbar__left ${linkColorClass}`}>
+          <Link to="/" className="navbar__logo" onClick={handleCloseMenu}>
             NewsExplorer
           </Link>
         </div>
 
         {/* Mobile hamburger menu button */}
         <button
-          className={`mobileBurger ${linkColorClass}`}
-          aria-label='Toggle menu'
+          className={`navbar__burger ${linkColorClass}`}
+          aria-label="Toggle menu"
           onClick={() => setShowMobileMenu((s) => !s)}
         >
           ☰
@@ -115,17 +115,21 @@ export default function NavBar({
 
         {/* Main nav links */}
         <div
-          className={`navLinks ${
-            showMobileMenu ? 'open' : ''
+          className={`navbar__links ${
+            showMobileMenu ? "open" : ""
           } ${linkColorClass}`}
         >
-          <Link to='/' onClick={handleCloseMenu}>
+          <Link to="/" className="navbar__link" onClick={handleCloseMenu}>
             Home
           </Link>
 
           {/* Show Saved Articles only if logged in */}
           {isAuthenticated && user ? (
-            <Link to={`/favorites/${user.id}`} onClick={handleCloseMenu}>
+            <Link
+              to={`/favorites/${user.id}`}
+              className="navbar__link"
+              onClick={handleCloseMenu}
+            >
               Saved articles
             </Link>
           ) : null}
@@ -133,7 +137,7 @@ export default function NavBar({
           {/* Conditionally render Sign In or Logout */}
           {isAuthenticated ? (
             <button
-              className='linkButton'
+              className="navbar__auth-button"
               onClick={() => {
                 signout();
                 handleCloseMenu();
@@ -143,7 +147,7 @@ export default function NavBar({
             </button>
           ) : (
             <button
-              className='linkButton'
+              className="navbar__auth-button"
               onClick={() => {
                 setIsModalOpen(true);
                 setIsSignupMode(false);
@@ -158,15 +162,17 @@ export default function NavBar({
 
       {/* Auth Modal (Sign In / Sign Up) */}
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <h3>{isSignupMode ? 'Sign up' : 'Sign in'}</h3>
-        <form onSubmit={handleSubmit} className='authForm'>
+        <h3 className="auth-form__title">
+          {isSignupMode ? "Sign up" : "Sign in"}
+        </h3>
+        <form className="auth-form" onSubmit={handleSubmit}>
           {/* Only show Name field when signing up */}
           {isSignupMode && (
             <label>
               Name
               <input
                 value={name}
-                placeholder='Enter Username'
+                placeholder="Enter Username"
                 onChange={(e) => setName(e.target.value)}
                 required
               />
@@ -176,8 +182,8 @@ export default function NavBar({
           <label>
             Email
             <input
-              type='email'
-              placeholder='Enter Email'
+              type="email"
+              placeholder="Enter Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -187,8 +193,8 @@ export default function NavBar({
           <label>
             Password
             <input
-              type='password'
-              placeholder='Enter Password'
+              type="password"
+              placeholder="Enter Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -196,25 +202,25 @@ export default function NavBar({
           </label>
 
           {/* Inline form error */}
-          {error && <div className='formError'>{error}</div>}
+          {error && <div className="formError">{error}</div>}
 
-          <div className='authActions'>
+          <div className="authActions">
             {/* Submit button updates label depending on mode */}
-            <button type='submit' className='submitButton' disabled={loading}>
+            <button type="submit" className="submitButton" disabled={loading}>
               {loading
-                ? 'Please wait...'
+                ? "Please wait..."
                 : isSignupMode
-                ? 'Create account'
-                : 'Sign in'}
+                ? "Create account"
+                : "Sign in"}
             </button>
 
             {/* Toggle sign in / sign up */}
             <button
-              type='button'
-              className='linkLike'
+              type="button"
+              className="linkLike"
               onClick={() => setIsSignupMode((s) => !s)}
             >
-              {isSignupMode ? 'Or Sign in' : 'Or Sign up'}
+              {isSignupMode ? "Or Sign in" : "Or Sign up"}
             </button>
           </div>
         </form>

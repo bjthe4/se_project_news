@@ -1,4 +1,4 @@
-.modalOverlay {
+.modal__overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.7); /* black overlay */
@@ -8,7 +8,7 @@
   z-index: 1000;
 }
 
-.modalContent {
+.modal__content {
   background: #fff;
   padding: 20px;
   max-width: 420px;
@@ -17,12 +17,16 @@
   position: relative;
 }
 
-.modalClose {
+.modal__close {
   position: absolute;
-  right: 8px;
-  top: 8px;
+  top: -40px;
+  right: -25px;
+  background: url("../../assets/close-Icon.svg") no-repeat center;
+  background-size: 40px 40px;
+  width: 40px;
+  height: 40px;
   border: none;
-  background: transparent;
-  font-size: 20px;
   cursor: pointer;
+  z-index: 1;
+  background-size: cover;
 }

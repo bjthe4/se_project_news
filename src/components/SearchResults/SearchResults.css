@@ -1,7 +1,7 @@
 /* ============================
    Search Form Styling
    ============================ */
-.searchForm {
+.hero__search-form {
   margin: 12px auto 0 auto; /* Center horizontally with top margin */
   display: flex; /* Layout: input + button in a row */
   gap: 8px; /* Space between input and button */
@@ -15,13 +15,14 @@
 }
 
 /* Input inside the search form */
-.searchForm input {
+.hero__search-form .hero__search-input {
   flex: 1; /* Take up remaining space */
   border-radius: 100px; /* Rounded pill shape */
   border: none; /* No border */
   padding-left: 15px; /* Inner left padding for text */
   font-size: 16px;
-  outline: none; /* Remove default focus outline */
+  outline: none;
+  color: black; /* Remove default focus outline */
   /* Vendor prefixes */
   /* -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
@@ -31,12 +32,12 @@
 }
 
 /* Input placeholder styling */
-.searchForm input::placeholder {
+.hero__search-form .hero__search-input::placeholder {
   color: #b6bcbf;
 }
 
 /* Submit button styling */
-.searchForm button {
+.hero__search-form .hero__search-button {
   padding: 21px 42px; /* Larger click area */
   border-radius: 100px; /* Rounded pill */
   border: none;
@@ -54,7 +55,7 @@
 /* ============================
    Search Results Layout
    ============================ */
-.searchResults {
+.search-results {
   max-width: 2500px; /* Prevent overly wide layout */
   margin: 24px auto; /* Vertical spacing + center horizontally */
   padding: 40px 100px; /* Inner spacing */
@@ -62,7 +63,7 @@
 }
 
 /* News grid */
-.grid {
+.search-results__grid {
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
@@ -71,14 +72,14 @@
 /* ============================
    Show More Button
    ============================ */
-.showMoreWrap {
+.search-results__show-more {
   display: flex;
   justify-content: center; /* Center button horizontally */
   margin: 20px 0; /* Vertical spacing */
 }
 
 /* Button styling */
-.showMoreBtn {
+.search-results__show-more-button {
   background: #e8e8e8; /* Light gray background */
   border: 1px solid #e2e8f0;
   padding: 20px 60px;
@@ -95,7 +96,7 @@
 }
 
 /* Hover effect */
-.showMoreBtn:hover {
+.search-results__show-more-button:hover {
   background: rgba(37, 99, 235, 0.06); /* Light blue hover */
   transform: translateY(-2px); /* Subtle lift effect */
 }
@@ -106,21 +107,21 @@
 
 /* Medium screens: reduce padding */
 @media (max-width: 860px) {
-  .searchResults {
+  .search__results {
     padding: 20px 40px;
   }
 }
 
 /* Tablets: 2-column grid */
 @media (max-width: 960px) {
-  .grid {
+  .grisearch-results__gridd {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 /* Small screens: single column */
 @media (max-width: 640px) {
-  .grid {
+  .search-results__grid {
     grid-template-columns: 1fr;
   }
 }

@@ -3,10 +3,10 @@
   justify-content: center;
   text-align: center;
 }
-.loader p {
+.loader .loader__message {
   padding-top: 70px;
 }
-.circle-preloader {
+.loader__spinner {
   display: block;
   width: 100px;
   height: 100px;

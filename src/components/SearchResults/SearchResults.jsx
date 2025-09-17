@@ -1,8 +1,8 @@
 // components/SearchResults/SearchResults.jsx
-import React from 'react';
-import NewsCard from '../NewsCard/NewsCard';
-import './SearchResults.css';
-import Loading from '../Loading/Loading';
+import React from "react";
+import NewsCard from "../NewsCard/NewsCard";
+import "./SearchResults.css";
+import Loading from "../Loading/Loading";
 
 /**
  * SearchResults Component
@@ -38,22 +38,22 @@ export default function SearchResults({
   isAuthenticated,
 }) {
   // If no query or no results, return nothing
-  if (query === '' || visibleNews.length === 0) return null;
+  if (query === "" || visibleNews.length === 0) return null;
 
   return (
-    <section className='searchResults'>
-      <h3>Search results</h3>
+    <section className="search-results">
+      <h3 className="search-results__title">Search results</h3>
 
       {loading ? (
         // Show loading indicator
         <Loading />
       ) : error ? (
         // Show error message
-        <div className='error'>{error}</div>
+        <div className="search-results__error">{error}</div>
       ) : (
         <>
           {/* News cards grid */}
-          <div className='grid'>
+          <div className="search-results__grid">
             {visibleNews.map((item) => (
               <NewsCard
                 key={item.id}
@@ -67,8 +67,11 @@ export default function SearchResults({
 
           {/* Show more button if there are hidden results */}
           {news.length > visibleCount && (
-            <div className='showMoreWrap'>
-              <button className='showMoreBtn' onClick={handleShowMore}>
+            <div className="search-results__show-more">
+              <button
+                className="search-results__show-more-button"
+                onClick={handleShowMore}
+              >
                 Show more
               </button>
             </div>

@@ -1,6 +1,6 @@
 // components/Modal.jsx
-import React from 'react';
-import './Modal.css';
+import React from "react";
+import "./Modal.css";
 
 /**
  * Modal Component
@@ -22,14 +22,16 @@ export default function Modal({ isOpen, onClose, children }) {
   if (!isOpen) return null; // Do not render modal if not open
 
   return (
-    <div className="modalOverlay" onClick={onClose}>
-      {/* Stop click propagation to prevent modal from closing when clicking inside */}
-      <div className="modalContent" onClick={(e) => e.stopPropagation()}>
-        {/* Accessible close button */}
-        <button className="modalClose" onClick={onClose} aria-label="Close">
-          ×
-        </button>
-        {children}
+    <div className="modal modal--open">
+      <div className="modal__overlay" onClick={onClose}>
+        {/* Stop click propagation to prevent modal from closing when clicking inside */}
+        <div className="modal__content" onClick={(e) => e.stopPropagation()}>
+          {/* Accessible close button */}
+          <button className="modal__close" onClick={onClose}>
+            {" "}
+          </button>
+          {children}
+        </div>
       </div>
     </div>
   );
