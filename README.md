@@ -1,11 +1,11 @@
-📰 News Explorer
-📖 Project Overview
+# 📰 News Explorer
+## 📖 Project Overview
 
 News Explorer is a full-stack news aggregation application that allows users to search for current events, save articles to a personal account, and manage their favorite stories. The application provides a seamless and responsive experience while integrating external news APIs and user authentication.
 
 The project was built using React and modern front-end development practices, focusing on reusable components, state management, routing, and API integration.
 
-✨ Key Features
+## ✨ Key Features
 🔍 Search for news articles by keyword
 📰 Display real-time news results from an external API
 🔐 User authentication and account management
@@ -13,7 +13,8 @@ The project was built using React and modern front-end development practices, fo
 🛡️ Protected routes for authenticated users
 📱 Fully responsive design across desktop, tablet, and mobile devices
 ⚡ Dynamic loading and error handling states
-⚙️ Technical Features
+
+## ⚙️ Technical Features
 React Component Architecture
 
 The application is organized into reusable React components such as:
@@ -28,7 +29,7 @@ Favorites
 
 This modular structure improves maintainability and scalability.
 
-Routing & Navigation
+### Routing & Navigation
 
 React Router is used to manage navigation between:
 
@@ -38,7 +39,7 @@ Protected Pages
 
 Protected routes ensure only authenticated users can access saved articles.
 
-State Management
+### State Management
 
 The application utilizes:
 
@@ -48,7 +49,7 @@ Component-level state management
 
 to maintain user information, search results, and application status.
 
-API Integration
+### API Integration
 
 The project integrates with external services through:
 
@@ -58,14 +59,15 @@ Custom API utility modules
 
 These services handle article retrieval, authentication, and user-specific data.
 
-🎨 User Experience Features
+### 🎨 User Experience Features
 Clean and intuitive interface
 Responsive layouts
 Interactive search experience
 Reusable modal system
 Loading indicators
 Error handling and user feedback
-🛠️ Technologies Used
+
+### 🛠️ Technologies Used
 Front-End
 React
 JavaScript (ES6+)
@@ -84,7 +86,8 @@ ESLint
 APIs
 News API
 Authentication Services
-🏗️ Project Structure
+
+### 🏗️ Project Structure
 
 The application follows a component-driven architecture:
 
@@ -98,7 +101,7 @@ src/
 
 This organization separates UI components, business logic, API communication, and global state management.
 
-🚀 Development Process
+### 🚀 Development Process
 
 The project was developed following modern front-end best practices:
 
@@ -108,11 +111,12 @@ API-driven architecture
 Route protection
 Reusable UI components
 Clean code principles
-🎨 Design
+
+### 🎨 Design
 
 The user interface was designed in Figma before implementation to ensure a consistent and user-friendly experience.
 
-🔗 Project Links
+### 🔗 Project Links
 GitHub Repository
 
 https://github.com/bjthe4/se_project_news
